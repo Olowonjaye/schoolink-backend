@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>SchooLink - Student Management</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>SchooLink</h1>
+    <p>Empowering Schools Beyond the Grid</p>
+  </header>
+
+  <main>
+    <section class="form-section">
+      <h2>Register a Student</h2>
+      <form id="studentForm">
+        <input type="text" id="name" placeholder="Full Name" required />
+        <input type="text" id="class" placeholder="Class (e.g. JSS1)" required />
+        <input type="number" id="age" placeholder="Age" required />
+        <input type="text" id="parent_name" placeholder="Parent Name: Abdulganiyu Taofeeq of 3MTT" required>
+        <input type="tel" id="parent_phone" placeholder="Parent Phone No: 08065855694" required>
+        <input type="email" id="parent_email" placeholder="Parent E-mail: 3mtt@gmail.com" required>
+
+        <select id="gender" required>
+          <option value="">Select Gender</option>
+          <option value="Male">Male</option>
+          <option value="Female">Female</option>
+        </select>
+        <button type="submit">Register Student</button>
+      </form>
+    </section>
+
+    <section class="form-section">
+  <h2>Record Result</h2>
+  <form id="resultForm">
+    <input type="number" id="resultStudentId" placeholder="Student ID" required />
+    <input type="text" id="subject" placeholder="Subject" required />
+    <input type="number" id="ca1" placeholder="CA1 Score" required />
+    <input type="number" id="ca2" placeholder="CA2 Score" required />
+    <input type="number" id="exam" placeholder="Exam Score" required />
+    <input type="text" id="term" placeholder="Term (e.g. 1st Term)" required />
+    <input type="text" id="session" placeholder="Session (e.g. 2024/2025)" required />
+    <button type="submit">Submit Result</button>
+  </form>
+</section>
+
+<section class="table-section">
+  <h2>Student Result Viewer</h2>
+  <input type="number" id="viewResultId" placeholder="Enter Student ID" />
+  <button id="viewBtn">View Results</button>
+
+
+  <table id="resultTable">
+    <thead>
+      <tr>
+        <th>Subject</th>
+        <th>CA1</th>
+        <th>CA2</th>
+        <th>Exam</th>
+        <th>Total</th>
+        <th>Grade</th>
+        <th>Remark</th>
+      </tr>
+    </thead>
+  </table>
+</section>
+
+
+<section class="table-section">
+  <h2>Student List</h2>
+  <button onclick="fetchStudents()">Refresh List</button>
+
+<table id="studentTable">
+  <thead>
+    <tr>
+      <th>ID</th>
+      <th>Name</th>
+      <th>Class</th>
+      <th>Age</th>
+      <th>Gender</th>
+      <th>Parent Name</th>
+      <th>Parent Phone</th>
+      <th>Parent Email</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- single tbody for dynamic content -->
+  </tbody>
+</table>
+
+</section>
+
+ <section class="table-section">
+  <h2>Class Broadsheet</h2>
+
+  <form id="broadsheetForm">
+    <input type="text" id="broadsheetTerm" placeholder="Term (e.g. 1st Term)" required />
+    <input type="text" id="broadsheetSession" placeholder="Session (e.g. 2024/2025)" required />
+    <button type="submit">Generate Broadsheet</button>
+     <button id="printBroadsheet" style="margin-top: 20px;">🖨️ Print / Export Broadsheet</button>
+  </form>
+
+  <div id="broadsheetContainer" style="overflow-x: auto; margin-top: 20px;"></div>
+ 
+</section>
+
+
+  </main>
+
+  <footer>
+    <p>&copy; 2025 SchooLink. All rights reserved.</p>
+  </footer>
+
+ 
+  <script src="students.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
+
+</body>
+</html>
